@@ -1,8 +1,8 @@
-<x-app-layout>
+<x-tenant-app-layout>
 	<x-slot name="header">
 		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
-			{{ __('Tenants') }}
-			<x-btn-link class="ml-4 float-right" href="{{ route('tenants.create') }}">Add Tenant</x-btn-link>
+			{{ __('Users') }}
+			<x-btn-link class="ml-4 float-right" href="{{ route('users.create') }}">Add User</x-btn-link>
 		</h2>
 	</x-slot>
 
@@ -16,29 +16,26 @@
 								<tr>
 									<th scope="col" class="px-6 py-3">Name</th>
 									<th scope="col" class="px-6 py-3">Email</th>
-									<th scope="col" class="px-6 py-3">Domain</th>
+									<th scope="col" class="px-6 py-3">Role</th>
 									<th scope="col" class="px-6 py-3">Created At</th>
 									<th scope="col" class="px-6 py-3">Action</th>
 								</tr>
 							</thead>
 							<tbody>
 
-								@foreach ($tenants as $tenant)
+								@foreach ($users as $user)
 								<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 									<td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-										{{$tenant->name}}</td>
-									<td>{{$tenant->email}}</td>
+										{{$user->name}}
+									</td>
+									<td>{{$user->email}}</td>
 									<td>
 
-										@foreach ($tenant->domains as $domain)
-										<a href="{{'http://'.$domain->domain.':8000'}}" target="_blank">
-											{{$domain->domain.':8000'}}
-										</a>
-										@endforeach
+
 
 
 									</td>
-									<td>{{$tenant->created_at}}</td>
+									<td>{{$user->created_at}}</td>
 									<td>Edit</td>
 								</tr>
 								@endforeach
@@ -48,4 +45,4 @@
 				</div>
 			</div>
 		</div>
-</x-app-layout>
+		</x-app-layout>

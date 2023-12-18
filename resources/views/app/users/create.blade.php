@@ -1,8 +1,8 @@
-<x-app-layout>
+<x-tenant-app-layout>
 	<x-slot name="header">
 		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
-			{{ __('Add Tenant') }}
-			<x-btn-link class="ml-4 float-right" href="{{ route('tenants.index') }}">Tenants</x-btn-link>
+			{{ __('Add User') }}
+			<x-btn-link class="ml-4 float-right" href="{{ route('users.index') }}">Users</x-btn-link>
 		</h2>
 	</x-slot>
 
@@ -10,7 +10,7 @@
 		<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 			<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 				<div class="p-6 text-gray-900">
-					<form method="POST" action="{{ route('tenants.store') }}">
+					<form method="POST" action="{{ route('users.store') }}">
 						@csrf
 
 						<!-- Name -->
@@ -27,13 +27,6 @@
 							<x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
 								required autocomplete="username" />
 							<x-input-error :messages="$errors->get('email')" class="mt-2" />
-						</div>
-
-						<div class="mt-4">
-							<x-input-label for="domain_name" :value="__('Domain Name')" />
-							<x-text-input id="domain_name" class="block mt-1 w-full" type="text" name="domain_name"
-								:value="old('domain_name')" required autofocus autocomplete="name" />
-							<x-input-error :messages="$errors->get('domain_name')" class="mt-2" />
 						</div>
 
 						<!-- Password -->
@@ -71,4 +64,4 @@
 			</div>
 		</div>
 	</div>
-</x-app-layout>
+</x-tenant-app-layout>
