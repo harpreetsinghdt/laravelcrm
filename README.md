@@ -29,9 +29,7 @@ php artisan migrate
 
 Register the service provider in config/app.php. Make sure it's on the same position as in the code snippet below:
 
-/*
- * Application Service Providers...
- */
+
 App\Providers\AppServiceProvider::class,
 App\Providers\AuthServiceProvider::class,
 // App\Providers\BroadcastServiceProvider::class,
