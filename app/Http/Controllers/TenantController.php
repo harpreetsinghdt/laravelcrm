@@ -31,8 +31,8 @@ class TenantController extends Controller
     public function store(Request $request, Tenant $tenant)
     {
         $validatedData = $request->validate([
-           'name'=>'required|string|max:255',
-           'email'=>'required|email|max:255',
+           'name'=>'required|string|max:255|unique:tenants,name',
+           'email'=>'required|email|max:255|unique:tenants,email',
            'domain_name'=>'required|string|max:255|unique:domains,domain',
            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);

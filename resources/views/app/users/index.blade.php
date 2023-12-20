@@ -30,13 +30,14 @@
 									</td>
 									<td>{{$user->email}}</td>
 									<td>
-
-
-
-
+										@foreach ($user->roles as $role)
+										{{$role->name}}{{$loop->last?'':','}}
+										@endforeach
 									</td>
 									<td>{{$user->created_at}}</td>
-									<td>Edit</td>
+									<td>
+										<x-btn-link href="{{ route('users.edit',$user->id)}}">Edit</x-btn-link>
+									</td>
 								</tr>
 								@endforeach
 							</tbody>
